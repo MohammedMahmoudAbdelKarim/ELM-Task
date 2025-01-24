@@ -1,0 +1,14 @@
+@for(item of items; track $index) { @if(item.route) {
+<a [routerLink]="item.route">
+  <br />
+  <span class="active-link fw-bold" [routerLinkActive]="'active-link'">{{
+    item.label
+  }}</span>
+</a>
+} @else {
+
+<a>
+  <span class="parent-link mx-2">{{ item.label }} </span>
+  <span class="slash mx-2">/</span>
+</a>
+} }

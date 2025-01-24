@@ -1,0 +1,121 @@
+mat-toolbar {
+  padding: 0 !important;
+  border-bottom: 1px solid #e2e7f1;
+  position: relative;
+  z-index: 99;
+  .dropdown-toggle {
+    background: none;
+    &::after {
+      content: none;
+    }
+    .username {
+      color: #495770;
+    }
+  }
+  .dropdown-menu {
+    border: 0;
+    box-shadow: 0px 0px 15px 1px rgb(69 65 78 / 20%);
+    min-width: 245px;
+    padding: 10px;
+  }
+
+  hr {
+    margin: 5px 0;
+  }
+
+  .logout {
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+      transition: 0.5s all ease-in-out;
+    }
+  }
+}
+
+mat-sidenav-container {
+  height: 100vh;
+  .mat-drawer {
+    width: 240px;
+    background: $secondary;
+    border-radius: 0;
+    color: #d2dce0 !important;
+    box-shadow: 0px 8px 14.72px 1.28px rgb(229 228 230 / 50%);
+    li.menu-link {
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        background: #ffffff0a !important;
+        color: #fff;
+        transition: 0.5s all ease-in-out;
+      }
+      &.active {
+        border-left: 5px solid #3f51b5;
+        background: #ffffff0a !important;
+        color: #fff;
+        font-weight: 900;
+        mat-icon {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: 0 16px;
+  }
+}
+.mat-drawer-container {
+  background-color: #fff !important;
+}
+
+// Mobile
+@media (min-width: 320px) and (max-width: 425px) {
+  mat-sidenav {
+    width: 245px;
+    padding: 16px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  mat-sidenav {
+    width: 245px;
+    padding: 16px;
+  }
+}
+
+mat-dialog-content {
+  min-width: 700px !important;
+}
+
+.user-img {
+  img {
+    width: 30px !important;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+mat-icon[svgIcon="arrow-down"] {
+  width: 20px;
+}
+.parent-link,
+.slash {
+  color: #98a1a5;
+  font-size: 14px;
+}
+
+.active-link {
+  color: #495770;
+  font-size: 18px;
+}
+.mat-toolbar .mat-mdc-button-base.mat-mdc-button-base.mat-unthemed {
+  background: $primary;
+}
+mat-sidenav-container .mat-drawer li.menu-link.active {
+  border-left: 0;
+}
+.filter-search {
+  color: #70819d;
+}

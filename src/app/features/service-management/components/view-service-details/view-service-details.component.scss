@@ -1,0 +1,36 @@
+.p-card {
+  background-color: #fff !important;
+  border: 0;
+}
+.p-card-title {
+  background-color: #f4f8fa !important;
+  padding: 10px !important;
+  color: #70819d !important;
+  font-weight: bold !important;
+}
+.p-card-body {
+  padding: 0;
+  border: 0 !important;
+  position: relative !important;
+  color: #70819d !important;
+  span {
+    color: #495770 !important;
+  }
+}
+
+.img-card {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+.p-button {
+  border: 1px solid #52bdcc !important;
+  padding: 15px;
+  color: #52bdcc !important;
+  background: #fff !important;
+  border-radius: 4px;
+  &:hover {
+    background: #52bdcc !important;
+    color: #fff !important;
+  }
+}

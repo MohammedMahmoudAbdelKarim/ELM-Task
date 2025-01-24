@@ -1,0 +1,37 @@
+@import "./theme/custom-bootstrap.scss";
+@import "./layout.scss";
+@import "./components/not-found.scss";
+@import "./components/empty-state.scss";
+@import "primeicons/primeicons.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900");
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+select {
+  font-family: "Inter" !important;
+}
+
+::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+:disabled {
+  opacity: 0.5;
+}
