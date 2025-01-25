@@ -1,0 +1,72 @@
+@if(filteredServices.length) { @defer {
+<p-table
+  [value]="filteredServices"
+  dataKey="id"
+  [rows]="10"
+  [loading]="!filteredServices.length"
+  [paginator]="true"
+  [globalFilterFields]="tableHeaders"
+  [tableStyle]="{ 'min-width': '75rem' }"
+  aria-labelledby="service-table"
+>
+  <ng-template #header>
+    <tr>
+      @for(header of tableHeaders; track $index){ @if(header) {
+      <th style="width: 20%" scope="col">{{ header | capitalize }}</th>
+      } @else {
+      <th style="width: 10%" scope="col"></th>
+      } }
+    </tr>
+  </ng-template>
+  <ng-template #body let-item>
+    <tr>
+      <td>{{ item.serviceName }}</td>
+      <td>
+        <div class="flex items-center gap-2">
+          <span>{{ item.code }}</span>
+        </div>
+      </td>
+      <td>
+        <div class="flex items-center gap-2">
+          <span>{{ item.type }}</span>
+        </div>
+      </td>
+      <td>
+        <div class="flex items-center gap-2 status {{ item.status }}">
+          <span>{{ item.status }}</span>
+        </div>
+      </td>
+      <td>
+        <div class="flex items-center gap-2">
+          <button
+            class="text-primary fw-bold bg-transparent border-0"
+            aria-label="Edit Service"
+          >
+            <span class="me-2">Edit</span>
+            <i class="pi pi-pencil" aria-hidden="true"></i>
+          </button>
+        </div>
+      </td>
+      <td>
+        <div class="flex items-center gap-2">
+          <button
+            class="text-primary fw-bold bg-transparent border-0"
+            (click)="openViewDetails()"
+            aria-label="View Service Details"
+          >
+            <span class="me-2">View</span>
+            <i class="pi pi-eye" aria-hidden="true"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+} @placeholder {
+<p>Loading ...</p>
+} }@else {
+<div class="d-flex align-items-center justify-content-center">
+  <i class="pi pi-exclamation-triangle me-3" aria-hidden="true"></i>
+  <p class="text-muted text-center mb-0">No records found</p>
+</div>
+}

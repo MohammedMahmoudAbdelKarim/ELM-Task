@@ -1,20 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { Table, TableModule } from 'primeng/table';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { MultiSelectModule } from 'primeng/multiselect';
 import { SelectModule } from 'primeng/select';
-import { TagModule } from 'primeng/tag';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../../core/services/api.service';
 import { Service } from '../../models/service.model';
 import { SERVICES } from '../../constants/services.constant';
-import { SkeletonModule } from 'primeng/skeleton';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { STATUS } from '../../constants/status.constant';
+import { TableComponent } from './table/table.component';
 
 @Component({
   standalone: true,
@@ -22,14 +19,11 @@ import { STATUS } from '../../constants/status.constant';
   imports: [
     CommonModule,
     ButtonModule,
-    TableModule,
     IconFieldModule,
     InputIconModule,
-    MultiSelectModule,
     SelectModule,
-    TagModule,
-    SkeletonModule,
     ReactiveFormsModule,
+    TableComponent,
   ],
   templateUrl: './service-list.component.html',
   styleUrl: './service-list.component.scss',
@@ -40,10 +34,8 @@ export class ServiceListComponent {
   searchControl: FormControl = new FormControl('');
   readonly router: Router = inject(Router);
   readonly apiService: ApiService = inject(ApiService);
-  loading: boolean = true;
   services: Service[] = [];
   filteredServices: Service[] = [];
-  activityValues: number[] = [0, 100];
   statuses = STATUS;
   ngOnInit() {
     this.getAllServices();
@@ -77,7 +69,13 @@ export class ServiceListComponent {
     this.filteredServices = SERVICES;
   }
 
-  openViewDetails(): void {
-    this.router.navigateByUrl('service-management/view-service-details');
+  onStatusChange(status: string): void {
+    if (status === 'All') {
+      this.filteredServices = [...this.services]; // Return all services
+    } else {
+      this.filteredServices = this.services.filter(
+        (service) => service.status === status
+      );
+    }
   }
 }

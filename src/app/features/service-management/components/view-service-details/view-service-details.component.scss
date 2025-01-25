@@ -1,13 +1,16 @@
+/* Card Styles */
 .p-card {
   background-color: #fff !important;
   border: 0;
 }
+
 .p-card-title {
   background-color: #f4f8fa !important;
   padding: 10px !important;
   color: #70819d !important;
   font-weight: bold !important;
 }
+
 .p-card-body {
   padding: 0;
   border: 0 !important;
@@ -18,11 +21,14 @@
   }
 }
 
+/* Card Image Styles */
 .img-card {
   position: absolute !important;
   top: 0;
   right: 0;
 }
+
+/* Button Styles */
 .p-button {
   border: 1px solid #52bdcc !important;
   padding: 15px;

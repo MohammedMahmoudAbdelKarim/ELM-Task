@@ -1,27 +1,36 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav">
+  <mat-sidenav
+    #sidenav="matSidenav"
+    aria-label="Side Navigation"
+    role="navigation"
+  >
     <div
-      class="d-flex logo algign-items-center justify-content-center mt-5 mb-5 pb-5"
+      class="d-flex logo align-items-center justify-content-center mt-5 mb-5 pb-5"
+      aria-labelledby="logo-heading"
     >
-      <h2>Logo</h2>
+      <h2 id="logo-heading">Logo</h2>
     </div>
-    <ul class="list-unstyled p-0">
+    <ul class="list-unstyled p-0" role="menu" aria-label="Main Menu">
       @for(menu of menuLinks; track $index) {
       <li
         class="d-flex align-items-center w-100 mb-2 p-3 menu-link"
         [routerLink]="menu.link"
         routerLinkActive="active"
+        role="menuitem"
       >
-        <mat-icon [svgIcon]="menu.icon"></mat-icon>
-
+        <mat-icon [svgIcon]="menu.icon" aria-hidden="true"></mat-icon>
         <span class="ms-2">{{ menu.title }}</span>
       </li>
       }
     </ul>
-    <img src="./assets/imgs/pattern.png" alt="Pattern" />
+    <img
+      src="./assets/imgs/pattern.png"
+      alt="Decorative pattern background"
+      role="presentation"
+    />
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="w-100">
+    <mat-toolbar class="w-100" role="banner" aria-label="Top Toolbar">
       <div class="content px-lg-3 w-100">
         <div
           class="w-100 d-flex h-100 align-items-center justify-content-between"
@@ -30,45 +39,60 @@
             class="w-100 h-100 d-flex align-items-center justify-content-between px-3"
           >
             <button
-              aria-label="Menu"
+              aria-label="Open or close the side menu"
               mat-icon-button
               *ngIf="sidenav.mode === 'over'"
               (click)="sidenav.toggle()"
-              labelledby="menu"
               matTooltip="Collapse"
-              aria-label="Menu"
             >
-              <mat-icon class="text-white"> menu </mat-icon>
+              <mat-icon class="text-white" aria-hidden="true">menu</mat-icon>
             </button>
             <div class="breadcrumb pt-4 pb-2">
               <app-breadcrumb></app-breadcrumb>
             </div>
             <div class="d-flex align-items-center justify-content-end">
-              <div class="dropdown" id="dropdown">
+              <div
+                class="dropdown"
+                id="dropdown"
+                role="region"
+                aria-label="User Profile"
+              >
                 <button
                   class="dropdown-toggle border-0 d-flex align-items-center"
                   type="button"
                   id="dropdownMenuButton2"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  labelledby="dropdown"
                   matTooltip="Profile"
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
                 >
                   <p-avatar
                     image="./assets/imgs/user.png"
                     class="user-img"
                     shape="circle"
+                    alt="User profile picture"
                   />
                   <span class="fs-6 username mx-3 d-none d-lg-flex"
                     >Mohammed Mahmoud</span
                   >
-                  <mat-icon svgIcon="arrow-down" class="d-none d-lg-flex"
+                  <mat-icon
+                    svgIcon="arrow-down"
+                    class="d-none d-lg-flex"
+                    aria-hidden="true"
                     >arrow_drop_down</mat-icon
                   >
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                  <li class="d-flex align-items-center logout">
-                    <mat-icon class="me-2">settings_power</mat-icon>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton2"
+                  id="dropdown-menu"
+                  role="menu"
+                >
+                  <li class="d-flex align-items-center logout" role="menuitem">
+                    <mat-icon class="me-2" aria-hidden="true"
+                      >settings_power</mat-icon
+                    >
                     <span>Logout</span>
                   </li>
                 </ul>
@@ -78,7 +102,7 @@
         </div>
       </div>
     </mat-toolbar>
-    <div class="pt-5 px-lg-5">
+    <div class="pt-5 px-lg-5" role="main" aria-label="Main Content Area">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

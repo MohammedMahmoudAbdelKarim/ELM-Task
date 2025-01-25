@@ -1,3 +1,4 @@
+/* General Button Styles */
 .p-button {
   background: #52bdcc !important;
   border: 0;
@@ -5,19 +6,25 @@
   color: #fff !important;
   border-radius: 4px !important;
 }
+
+/* Data Table Header Styles */
 .p-datatable-thead > tr {
   border: 2px solid #d2dce0;
 }
+
 .p-datatable-thead > tr > th {
   background: #fff !important;
   color: #70819d !important;
 }
 
+/* Data Table Body Styles */
 .p-datatable-tbody > tr > td {
   background: #fff !important;
   color: #70819d !important;
   border-bottom: 1px solid #e4ebee !important;
 }
+
+/* Paginator Styles */
 .p-paginator {
   padding-top: 30px;
   background: #fff !important;
@@ -28,44 +35,57 @@
   border-radius: 4px;
 }
 
+/* Search Input Styles */
 .search-input {
   border-radius: 4px;
   border: 1px solid #d8d8d8 !important;
   color: #70819d !important;
 }
 
+/* Filter Search Styles */
 .filter-search {
   color: #70819d !important;
 }
+
+/* Select Component Styles */
 .p-select {
   background: #fff !important;
   border: 1px solid #d8d8d8;
 }
+
 .p-select-overlay {
   background-color: #fff !important;
   color: #70819d !important;
 }
+
+.p-select-option,
+.p-select-label {
+  color: #70819d !important;
+}
+
+.p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
+  background: #fff !important;
+}
+
+/* Status Styles */
 .status {
   border-radius: 4px;
   width: 85px;
   padding: 5px 0;
   text-align: center;
-  &.Active {
-    background: #e7f5ea;
-    color: #1eb05b;
-  }
-  &.Inactive {
-    background: #fdf2e5;
-    color: #bf7a1f;
-  }
 }
-.p-select-option,
-.p-select-label {
-  color: #70819d !important;
+
+.status.Active {
+  background: #e7f5ea;
+  color: #1eb05b;
 }
-.p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
-  background: #fff !important;
+
+.status.Inactive {
+  background: #fdf2e5;
+  color: #bf7a1f;
 }
+
+/* Paginator Navigation Button Styles */
 .p-paginator-page,
 .p-paginator-next,
 .p-paginator-prev,
@@ -73,7 +93,12 @@
 .p-paginator-last {
   border: 1px solid #d2dce0 !important;
   border-radius: 4px !important;
-  &:hover {
-    background: #52bdcc !important;
-  }
+}
+
+.p-paginator-page:hover,
+.p-paginator-next:hover,
+.p-paginator-prev:hover,
+.p-paginator-first:hover,
+.p-paginator-last:hover {
+  background: #52bdcc !important;
 }

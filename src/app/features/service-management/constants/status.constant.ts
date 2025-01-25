@@ -1,1 +1,1 @@
-export const STATUS: string[] = ['Active', 'Inactive'];
+export const STATUS: string[] = ['All', 'Active', 'Inactive'];
